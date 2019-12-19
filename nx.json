@@ -1,0 +1,18 @@
+{
+  "npmScope": "kramphub",
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "kendo-ui-react": {
+      "tags": []
+    },
+    "kendo-ui-react-e2e": {
+      "tags": []
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "projects": {
+    "kendo-ui-react": {
+      "root": "apps/kendo-ui-react",
+      "sourceRoot": "apps/kendo-ui-react",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/next:build",
+          "options": {
+            "root": "apps/kendo-ui-react",
+            "outputPath": "dist/apps/kendo-ui-react"
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/next:dev-server",
+          "options": {
+            "buildTarget": "kendo-ui-react:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "builder": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "kendo-ui-react:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/kendo-ui-react/.eslintrc",
+            "tsConfig": [
+              "apps/kendo-ui-react/tsconfig.json",
+              "apps/kendo-ui-react/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/kendo-ui-react/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/kendo-ui-react/jest.config.js",
+            "tsConfig": "apps/kendo-ui-react/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "kendo-ui-react-e2e": {
+      "root": "apps/kendo-ui-react-e2e",
+      "sourceRoot": "apps/kendo-ui-react-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/kendo-ui-react-e2e/cypress.json",
+            "tsConfig": "apps/kendo-ui-react-e2e/tsconfig.e2e.json",
+            "devServerTarget": "kendo-ui-react:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "kendo-ui-react:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/kendo-ui-react-e2e/.eslintrc",
+            "tsConfig": ["apps/kendo-ui-react-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/kendo-ui-react-e2e/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/next"
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/react": {
+      "application": {
+        "linter": "eslint",
+        "babel": true
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "style": "scss",
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/web": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "kendo-ui-react"
+}
