@@ -37,7 +37,7 @@
     "document-register-element": "1.13.1",
     "hammerjs": "^2.0.8",
     "isomorphic-fetch": "^2.2.1",
-    "next": "9.0.5",
+    "next": "11.1.0",
     "react": "16.12.0",
     "react-dom": "16.12.0"
   },
